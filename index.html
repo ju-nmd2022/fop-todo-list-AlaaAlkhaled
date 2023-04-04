@@ -8,17 +8,22 @@
     <title>Todo list</title>
 </head>
 <body>
+    <div class="login-container">
+        <input type="text" id="username" placeholder="Username">
+        <button id="loginButton" type="button">Login</button>
+        <span id="displayName" class="hidden"></span>
+    </div>
     
     <div class="container">
         <h1>Todo List</h1>
-        <form id="taskForm">
-            <input type="text" id="taskInput" placeholder="Enter a task">
+        <div id="taskForm">
+            <input type="text" id="taskInput" placeholder="Enter a task" required>
             <button type="submit" id="addTaskButton">Add Task</button>
-        </form>
+        </div>
         <ul id="taskList"></ul>
     </div>
 
 
-    <script src="todolist.js"></script>
+    <script src="todolist.js" defer></script>
 </body>
 </html>

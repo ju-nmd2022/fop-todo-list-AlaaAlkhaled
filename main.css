@@ -26,7 +26,7 @@ body {
     place-items: start center;
     height: 100vh;
     margin: 0;
-    padding-top: 10vh;
+    padding-top: 10vh; 
 }
 
 .container {
@@ -44,7 +44,7 @@ h1 {
     text-align: center;
 }
 
-form {
+#taskForm {
     display: grid;
     grid-template-columns: 1fr auto;
     gap: 1rem;
@@ -62,6 +62,24 @@ button {
 
 button:hover {
     transform: scale(1.05);
+}
+
+.login-container {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    display: flex;
+    gap: 0.5rem;
+}
+
+.hidden{
+    display: none;
+}
+
+
+ul {
+    list-style-type: none;
+    padding: 0;
 }
 
 
