@@ -77,9 +77,34 @@ button:hover {
 }
 
 
-ul {
+#taskList {
     list-style-type: none;
-    padding: 0;
+    padding: 1em;
 }
+
+.task {
+    background-color: white;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    border: 1px solid;
+}
+
+span.delete {
+    font-weight: bold;
+    color: white;
+    background-color: red;
+    padding: 5px;
+    cursor: pointer;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 4px;
+}
+
+span.delete:hover {
+    background-color: darkred;
+}
+
 
 
