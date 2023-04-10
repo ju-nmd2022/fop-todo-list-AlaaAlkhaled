@@ -5,13 +5,15 @@ let taskElement = document.getElementById("taskList");
 
 let arrayOfTheTasks = [];
 
+//checking if there is data in local storage
 if(localStorage.getItem("tasks")){
     arrayOfTheTasks = JSON.parse(localStorage.getItem("tasks"))
 };
 
+//getting data from the local storage
 getDataFromLocalStorage();
 
-// add Task
+// adding Task
 submit.onclick = function (){
     if (input.value !== ""){
         // adding tasks to array 
@@ -93,7 +95,7 @@ function deleteTask(taskId){
     addDataToLocalStorage(arrayOfTheTasks);
 }
 
-
+//The following 5 lines were adapted from ChatGPT
 function completedTask(taskId) {
     for (let i = 0; i < arrayOfTheTasks.length; i++) {
         if (arrayOfTheTasks[i].id == taskId) {
@@ -102,3 +104,9 @@ function completedTask(taskId) {
     }
     addDataToLocalStorage(arrayOfTheTasks);
 }
+
+if (taskList) {
+// Toggle the "folded" class on the taskList element
+    taskList.classList.toggle("folded");
+}
+

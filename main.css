@@ -1,36 +1,15 @@
-/*
 body {
-    background-color: skyblue;
-    font-family: Arial, sans-serif;
-    display: grid;
-    justify-items: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    padding: 0;
-}
-
-.container {
-    background-color: white;
-    padding: 2rem;
-    border-radius: 1rem;
-    display: grid;
-    gap: 1rem;
-}
-*/
-
-body {
-    background-color: skyblue;
+    background-color: #add8e6;
     font-family: Arial, sans-serif;
     display: grid;
     place-items: start center;
     height: 100vh;
     margin: 0;
-    padding-top: 10vh; 
+    padding-top: 10vh;
 }
 
 .container {
-    background-color: white;
+    background-color: #F0F0F0;
     padding: 2rem;
     border-radius: 1rem;
     display: grid;
@@ -38,7 +17,6 @@ body {
     width: 80%;
     max-width: 600px;
 }
-
 
 h1 {
     text-align: center;
@@ -64,22 +42,44 @@ button:hover {
     transform: scale(1.05);
 }
 
-.login-container {
-    position: absolute;
-    top: 1rem;
-    left: 1rem;
-    display: flex;
-    gap: 0.5rem;
-}
-
-.hidden{
-    display: none;
-}
-
-
 #taskList {
     list-style-type: none;
     padding: 1em;
+    position: relative;
+    overflow: hidden;
+    transform-style: preserve-3d;
+}
+
+#taskList:before,
+#taskList:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 15px;
+    background-color: #FFF;
+    transform-origin: left center;
+    transition: all 0.3s ease;
+}
+
+#taskList:before {
+    left: 0;
+    transform: rotateY(90deg) translateZ(1px);
+    box-shadow: 0px 0px 10px #ced4da;
+}
+
+#taskList:after {
+    right: 0;
+    transform: rotateY(-90deg) translateZ(1px);
+    box-shadow: 0px 0px 10px #ced4da;
+}
+
+#taskList.folded:before {
+    transform: rotateY(0deg) translateZ(1px);
+}
+
+#taskList.folded:after {
+    transform: rotateY(0deg) translateZ(1px);
 }
 
 #taskList .task {
@@ -98,15 +98,14 @@ button:hover {
 }
 
 #taskList .task:hover {
-    background-color: #878080;
+    background-color: #adb5bd;
 }
 
 #taskList .task.done {
     opacity: 0.5;
     text-decoration: line-through;
-    background-color: #f2f2f2;
+    background-color: #e9ecef;
 }
-
 
 span.delete {
     font-weight: bold;
@@ -121,6 +120,3 @@ span.delete {
 span.delete:hover {
     background-color: darkred;
 }
-
-
-
