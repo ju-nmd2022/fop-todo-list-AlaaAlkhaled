@@ -25,14 +25,20 @@ taskElement.addEventListener("click", (event) =>{
     //delete button
     if(event.target.classList.contains("delete")){
         //delete element
-        deleteTask(event.target.parentElement.getAttribute("data"));
+        deleteTask(event.target.parentElement.getAttribute("data-id"));
         event.target.parentElement.remove();
+    }
+    if(event.target.classList.contains("task")){
+        //mark task as completed
+        completedTask(event.target.getAttribute("data-id"));
+        event.target.classList.toggle("done");
     }
 });
 
 function addTasks (taskText) {
     //data
     const task = {
+        id: Date.now(),
         tittle: taskText,
         completed: false,
     };
@@ -53,10 +59,10 @@ function addElementsToPage(arrayOfTheTasks){
         div.className = "task";
         // checking the task
         if(task.completed === true) {
-            div.className = "task added";
+            div.className = "task done";
         }
 
-        div.setAttribute("data", task);
+        div.setAttribute("data-id", task.id);
         div.appendChild(document.createTextNode(task.tittle));
         //create delete button
         let span = document.createElement("span");
@@ -83,7 +89,16 @@ function getDataFromLocalStorage(){
 }
 
 function deleteTask(taskId){
-    arrayOfTheTasks = arrayOfTheTasks.filter((task) => task.tittle != task.tittle);
+    arrayOfTheTasks = arrayOfTheTasks.filter((task) => task.id != taskId);
     addDataToLocalStorage(arrayOfTheTasks);
 }
 
+
+function completedTask(taskId) {
+    for (let i = 0; i < arrayOfTheTasks.length; i++) {
+        if (arrayOfTheTasks[i].id == taskId) {
+            arrayOfTheTasks[i].completed == false ? (arrayOfTheTasks[i].completed = true) : (arrayOfTheTasks[i].completed = false);
+        }
+    }
+    addDataToLocalStorage(arrayOfTheTasks);
+}
